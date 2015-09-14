@@ -15,6 +15,12 @@ rainbow <- [
     [255, 0, 255],
 ]
 
+function handleBong(color) {
+    setColor(color)
+}
+
+agent.on("color", handleBong)
+
 function setColor(color) {
     r.write(color[0]/255.0)
     g.write(color[2]/255.0)
