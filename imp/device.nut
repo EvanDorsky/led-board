@@ -15,7 +15,10 @@ rainbow <- [
     [255, 0, 255],
 ]
 
+solidColorMode <- false
+
 function handleBong(color) {
+    solidColorMode = true
     color = color.tointeger()
     color = [0xff0000&color, 0x00ff00&color, 0x0000ff&color]
     setColor(color)
@@ -45,6 +48,8 @@ ct_c2 <- 0
 ct_start <- 0
 ct_time <- 0
 function colorTrans() {
+    if (solidColorMode)
+        return
     local time = ct_time*1e3
     local start = ct_start
     local t = 0
@@ -63,6 +68,8 @@ sw_colors <- 0
 sw_time <- 0
 sw_repeat <- 0
 function sweep() {
+    if (solidColorMode)
+        return
     // time in seconds
     local currentCol, nextC
     if (sw_i < sw_colors.len()-1) {
