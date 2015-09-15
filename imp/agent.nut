@@ -1,11 +1,11 @@
 function handle(req, res) {
     try {
-        device.send("color", [0, 255, 0])
+        device.send("color", req.query.color)
 
         res.send(200, "Color set")
     }
     catch (err) {
-        response.send(500, err)
+        res.send(500, req.body)
     }
 }
 
