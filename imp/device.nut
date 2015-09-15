@@ -16,6 +16,8 @@ rainbow <- [
 ]
 
 function handleBong(color) {
+    color = color.tointeger()
+    color = [0xff0000&color, 0x00ff00&color, 0x0000ff&color]
     setColor(color)
 }
 
